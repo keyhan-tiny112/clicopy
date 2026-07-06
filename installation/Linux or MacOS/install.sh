@@ -31,17 +31,19 @@ echo "ok!"
 
 cd "$PATH_INSTALL"
 
-echo "install rust..."
+
 # Install Rust
 if ! command -v cargo >/dev/null; then
+    echo "install rust..."
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
     source "$HOME/.cargo/env"
     echo "installed!!"
 fi
 
-echo "install bun..."
+
 # Install Bun
 if ! command -v bun >/dev/null; then
+    echo "install bun..."
     curl -fsSL https://bun.sh/install | bash
     export PATH="$HOME/.bun/bin:$PATH"
     echo "installed!!"
@@ -50,6 +52,7 @@ fi
 echo "install dependencies..."
 # Install dependencies
 bun install
+echo "installed!!"
 
 echo "running..."
 # Run
